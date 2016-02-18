@@ -5,9 +5,7 @@ module Listable
   end
 
   def format_date(*dates)
-    if (dates.count == 0)
-       return
-    end
+    date = ""
     if (dates.count > 2)
         return ""
     elsif (dates.count == 2)

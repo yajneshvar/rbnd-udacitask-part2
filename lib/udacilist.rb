@@ -2,6 +2,8 @@ class UdaciList
   attr_reader :title, :items
 
   def initialize(options={})
+    opts = {title:"Untitled List"}
+    options = opts.merge(options)
     @title = options[:title]
     @items = []
   end
