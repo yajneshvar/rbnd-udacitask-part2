@@ -1,7 +1,7 @@
 module Listable
   # Listable methods go here
-  def format_description(description)
-  "#{description}".ljust(30)
+  def format_description(description,type)
+  "#{description}".ljust(30) + "#{type}".ljust(15)
   end
 
   def format_date(*dates)
