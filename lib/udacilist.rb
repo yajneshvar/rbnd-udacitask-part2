@@ -33,4 +33,16 @@ class UdaciList
       puts "#{position + 1}) #{item.details} "
     end
   end
+  def filter(type)
+    puts "-" * type.length
+    puts type.upcase
+    puts "-" * type.length
+    num = 0
+    @items.each do |item|
+      if(item.type == type)
+        num += 1
+        puts "#{num} #{item.details} "
+      end
+    end
+  end
 end
