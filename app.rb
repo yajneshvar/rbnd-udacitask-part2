@@ -60,15 +60,16 @@ if(!$options[:interactive])
   # DEMO FILTER BY ITEM TYPE
   # ------------------------
   new_list.filter("event")
+
 else
+  # NEW FEATURE
+  # -----------
   cli = HighLine.new
-  #answer = cli.ask "Would you like to create a new list? "
-  #puts "You have answered: #{answer}"
   mylist = nil
   exit = false
   while !exit
     cli.choose do |menu|
-      menu.prompt = " Please choose an action (create add delete print exit)"
+      menu.prompt = "Please choose an action (create add delete print exit)"
       menu.choice(:create) {
         title = cli.ask("What is the tile of your list?")
         title.chomp!
@@ -84,18 +85,31 @@ else
             due_date = cli.ask("Enter due date i.e 10/11/16 or in 2 weeks:")
             priority = cli.ask("Enter the priority (low medium high): ")
             mylist.add(type,description,due:due_date,priority: priority)
-            mylist.all
           elsif (type == "event")
-
+            description = cli.ask("Enter description:")
+            start_date = cli.ask("Start date:")
+            start_date.chomp!
+            end_date = cli.ask("End date:")
+            end_date.chomp!
+            mylist.add(type,description,start_date: start_date,end_date: end_date)
           elsif (type == "link")
-
+            link = cli.ask("Enter the link")
+            site_name = cli.ask("Enter the site name:")
+            mylist.add(type,link,site_name: site_name)
           end
+        end
+      }
+      menu.choice(:delete){}
+      menu.choice(:print){
+        if(!mylist.nil?)
+          puts
+          mylist.all
+          puts
         end
       }
       menu.choice(:exit){
         exit = true
       }
-
     end
 
   end
