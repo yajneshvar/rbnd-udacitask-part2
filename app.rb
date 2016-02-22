@@ -99,7 +99,14 @@ else
           end
         end
       }
-      menu.choice(:delete){}
+      menu.choice(:delete){
+        if(!mylist.nil?)
+          puts
+          mylist.all
+          index = cli.ask("Please specify an index", Integer)
+          mylist.delete(index)
+        end
+      }
       menu.choice(:print){
         if(!mylist.nil?)
           puts
