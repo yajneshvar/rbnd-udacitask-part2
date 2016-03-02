@@ -1,13 +1,21 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+  I choose the HighLine gem. I used it to get user input from the users to make it interactive
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Delete multiple items
+  b) Change the priority for a todo item
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+    I spent about 12 hours on this project.
 2. What was the most rewarding challenge you conquered?
+    The most rewarding challenge was to incorporate the HighLine gem
 3. What two additional features did you build? Why?
+    Added the deletion for multiple item to make it easier to delete an item
+    Added the feature to change priority as priority can change for a task
+    Added interactive feature to try out the HighLine gem.
 4. Where do you still have room to grow?
+    I have a lot of room to grow in coming up with efficient algorithm
+    I also have room to grow in formating my code.
