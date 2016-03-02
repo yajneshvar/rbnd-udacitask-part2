@@ -61,8 +61,16 @@ if(!$options[:interactive])
   # ------------------------
   new_list.filter("event")
 
+  #DEMO NEW FEATURE of changing Priority
+  new_list.changePriority(1,"high")
+  #DEMO of deleting multiple item
+  new_list.delete(6,7,8)
+  #Buying food for dog item priority changes from medium to high
+  #The links and the life happens event are removed
+  new_list.all
+
 else
-  # NEW FEATURE
+  # NEW FEATURE WITH GEM
   # -----------
   cli = HighLine.new
   mylist = nil

@@ -19,11 +19,17 @@ class UdaciList
       raise UdaciListErrors::InvalidItemType, "Item entered is invalid"
     end
   end
-  def delete(index)
-    if(index > @items.length)
-      raise UdaciListErrors::IndexExceedsListSize, "Index is out of bound"
+  def delete(*indices)
+    indices.sort!
+    length = @items.length
+    index = indices.pop
+    while (index != nil)
+      if(index > length)
+        raise UdaciListErrors::IndexExceedsListSize, "Index is out of bound"
+      end
+      @items.delete_at(index - 1)
+      index = indices.pop
     end
-    @items.delete_at(index - 1)
   end
   def all
     puts "-" * @title.length
@@ -44,5 +50,18 @@ class UdaciList
         puts "#{num} #{item.details} "
       end
     end
+  end
+  def changePriority(index,priority)
+    if(index > @items.length)
+      raise UdaciListErrors::IndexExceedsListSize, "Index is out of bound"
+    end
+    todo = @items[index-1];
+    puts todo.class
+    if(todo.class === TodoItem)
+      raise UdaciListErrors::InvalidItemType, "Item is not a todo item"
+    end
+
+    todo.changePriority(priority);
+
   end
 end
