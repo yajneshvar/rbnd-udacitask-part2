@@ -51,7 +51,7 @@ class UdaciList
       end
     end
   end
-  def changePriority(index,priority)
+  def change_priority(index,priority)
     if(index > @items.length)
       raise UdaciListErrors::IndexExceedsListSize, "Index is out of bound"
     end
@@ -61,7 +61,7 @@ class UdaciList
       raise UdaciListErrors::InvalidItemType, "Item is not a todo item"
     end
 
-    todo.changePriority(priority);
+    todo.change_priority(priority);
 
   end
 end
